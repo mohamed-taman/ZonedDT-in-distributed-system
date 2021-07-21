@@ -1,5 +1,7 @@
 HELP.md
 target/
+udb/
+.jpb
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
