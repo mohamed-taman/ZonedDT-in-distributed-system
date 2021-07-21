@@ -1,0 +1,18 @@
+{
+  "properties": [
+    {
+      "name": "app.version",
+      "type": "java.lang.String",
+      "description": "Description for app.version."
+    },
+    {
+      "name": "app.trip.pattern.datetime",
+      "type": "java.lang.String",
+      "description": "Description for app.trip.pattern.datetime."
+    },
+    {
+      "name": "app.trip.pattern.date",
+      "type": "java.lang.String",
+      "description": "Description for app.trip.pattern.date."
+    }
+  ] }
