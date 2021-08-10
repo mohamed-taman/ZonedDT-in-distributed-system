@@ -3,16 +3,16 @@
     {
       "name": "app.version",
       "type": "java.lang.String",
-      "description": "Description for app.version."
+      "description": "Application REST API version."
     },
     {
       "name": "app.trip.pattern.datetime",
       "type": "java.lang.String",
-      "description": "Description for app.trip.pattern.datetime."
+      "description": "The datetime format used across application."
     },
     {
       "name": "app.trip.pattern.date",
       "type": "java.lang.String",
-      "description": "Description for app.trip.pattern.date."
+      "description": "The date format used across application."
     }
   ] }

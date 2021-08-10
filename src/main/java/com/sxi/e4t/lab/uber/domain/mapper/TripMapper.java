@@ -24,15 +24,20 @@ public abstract class TripMapper {
     @Mapping(target = "car.id", source = "carId")
     @Mapping(target = "driver.id", source = "driverId")
     @Mapping(target = "customer.id", source = "customerId")
-    @Mapping(target = "startOn", expression = "java( DateTimeParser.parseDateTime(request.startOn(), request.timezone()) )")
-    @Mapping(target = "endAt", expression = "java( DateTimeParser.parseDateTime(request.endAt(), request.timezone()) )")
+    @Mapping(target = "startOn",
+            expression = "java( DateTimeParser.parseDateTime(request.startOn(), request.timezone()) )")
+    @Mapping(target = "endAt",
+            expression = "java( DateTimeParser.parseDateTime(request.endAt(), request.timezone()) )")
     public abstract Trip toModel(TripRequest request);
 
     public abstract List<Trip> toModels(List<TripRequest> request);
 
-    @Mapping(target = "startOn", expression = "java( DateTimeParser.toDateTimeString(trip.getStartOn(), timezone) )")
-    @Mapping(target = "endAt", expression = "java( DateTimeParser.toDateTimeString(trip.getEndAt(), timezone) )")
-    @Mapping(target = "recordAge", expression = "java( DateTimeParser.calculateRecordAge(trip.getStartOn(), timezone) )")
+    @Mapping(target = "startOn",
+            expression = "java( DateTimeParser.toDateTimeString(trip.getStartOn(), timezone) )")
+    @Mapping(target = "endAt",
+            expression = "java( DateTimeParser.toDateTimeString(trip.getEndAt(), timezone) )")
+    @Mapping(target = "recordAge",
+            expression = "java( DateTimeParser.calculateRecordAge(trip.getStartOn(), timezone) )")
     @Mapping(target = "car", expression = "java( carMapper.toView(trip.getCar()) )")
     public abstract TripResponse toView(Trip trip, String timezone);
 
