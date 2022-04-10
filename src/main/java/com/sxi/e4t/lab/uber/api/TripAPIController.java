@@ -6,10 +6,19 @@ import com.sxi.e4t.lab.uber.service.TripService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Tag(name = "Trip Manager",
@@ -37,8 +46,8 @@ public class TripAPIController {
     @Operation(summary = "Search all trips.",
             description = "An API call to search all the trips, between two dates, for a specific timezone.")
     @GetMapping("search")
-    public List<TripResponse> search(@Parameter(example = "2021-07-15 01:01:01") @RequestParam("fromDate") String fromDate,
-                                     @Parameter(example = "2021-07-20 01:01:01") @RequestParam("toDate") String toDate,
+    public List<TripResponse> search(@Parameter(example = "2022-07-15 01:01:01") @RequestParam("fromDate") String fromDate,
+                                     @Parameter(example = "2022-07-20 01:01:01") @RequestParam("toDate") String toDate,
                                      @Parameter(example = "Europe/Sofia") @RequestParam("tz") String timezone) {
 
         log.info("Searching for trips in date range between [{}] and [{}] and timezone of [{}]",

@@ -1,16 +1,24 @@
 package com.sxi.e4t.lab.uber.domain.entity;
 
+import jakarta.persistence.Basic;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
 
-import javax.persistence.*;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 
-import static javax.persistence.GenerationType.IDENTITY;
+import static jakarta.persistence.GenerationType.IDENTITY;
 
 
 @Entity
@@ -67,11 +75,15 @@ public class Trip {
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         var trip = (Trip) o;
 
-        return Objects.equals(id, trip.id);
+        return Objects.equals(id, trip.id) ||
+                (startOn.isEqual(trip.startOn) &&
+                        endAt.isEqual(trip.endAt) &&
+                        customer.equals(trip.customer));
     }
 
     @Override
     public int hashCode() {
-        return 149555212;
+        return Objects.hash(getId(), getTimezone(), getStartOn(), getEndAt(),
+                getDistance(), getStatus(), getCar(), getDriver(), getCustomer());
     }
 }

@@ -1,5 +1,16 @@
 package com.sxi.e4t.lab.uber.domain.entity;
 
+import jakarta.persistence.Basic;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -7,12 +18,11 @@ import lombok.ToString;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.NaturalId;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static javax.persistence.GenerationType.IDENTITY;
+import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "CAR")
@@ -58,11 +68,12 @@ public class Car {
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         var car = (Car) o;
 
-        return Objects.equals(id, car.id);
+        return Objects.equals(id, car.id) || Objects.equals(chassisNumber, car.chassisNumber);
     }
 
     @Override
     public int hashCode() {
-        return 2133657150;
+        return Objects.hash(getId(), getModel(), getChassisNumber(), getColor(),
+                getRegistrationNumber(), getBranch(), getTrips());
     }
 }
