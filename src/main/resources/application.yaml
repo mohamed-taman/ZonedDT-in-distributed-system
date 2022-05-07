@@ -60,7 +60,7 @@ server:
     include-message: always
     include-binding-errors: always
   servlet:
-    context-path: /api/${app.api.version}/uber/service
+    context-path: /api/${app.api.version}/fizz-bus/service
 
 # Application health and information management
 management:
