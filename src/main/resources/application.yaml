@@ -1,6 +1,8 @@
 ## Custom application properties
 app:
-  version: 'v1'
+  version: @project.version@
+  api:
+    version: "v1"
   trip:
     pattern:
       datetime: 'yyyy-MM-dd HH:mm:ss'
@@ -58,7 +60,7 @@ server:
     include-message: always
     include-binding-errors: always
   servlet:
-    context-path: /uber/service
+    context-path: /api/${app.api.version}/fizz-bus/service
 
 # Application health and information management
 management:
@@ -92,7 +94,7 @@ logging.level:
 springdoc:
   # swagger-ui custom path
   swagger-ui:
-    path: /${app.version}/doc/index.html
+    path: /doc/index.html
     operationsSorter: alpha
     tagsSorter: alpha
     displayRequestDuration: true
@@ -100,7 +102,7 @@ springdoc:
       theme: arta
   # /api-docs endpoint custom path
   api-docs:
-    path: /${app.version}/api-docs
+    path: /api-docs
   # to display the actuator endpoints.
   show-actuator: false
 
