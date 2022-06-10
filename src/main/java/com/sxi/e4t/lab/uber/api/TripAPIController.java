@@ -9,7 +9,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.List;
 
 @Tag(name = "Trip Manager",
@@ -37,9 +37,12 @@ public class TripAPIController {
     @Operation(summary = "Search all trips.",
             description = "An API call to search all the trips, between two dates, for a specific timezone.")
     @GetMapping("search")
-    public List<TripResponse> search(@Parameter(example = "2021-07-15 01:01:01") @RequestParam("fromDate") String fromDate,
-                                     @Parameter(example = "2021-07-20 01:01:01") @RequestParam("toDate") String toDate,
-                                     @Parameter(example = "Europe/Sofia") @RequestParam("tz") String timezone) {
+    public List<TripResponse> search(@Parameter(example = "2021-07-15 01:01:01")
+                                         @RequestParam("fromDate") String fromDate,
+                                     @Parameter(example = "2021-07-20 01:01:01")
+                                         @RequestParam("toDate") String toDate,
+                                     @Parameter(example = "Europe/Sofia")
+                                         @RequestParam("tz") String timezone) {
 
         log.info("Searching for trips in date range between [{}] and [{}] and timezone of [{}]",
                 fromDate, toDate, timezone);
