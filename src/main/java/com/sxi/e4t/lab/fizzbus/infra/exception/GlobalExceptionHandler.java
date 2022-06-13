@@ -1,7 +1,6 @@
-package com.sxi.e4t.lab.fizzbus.infra;
+package com.sxi.e4t.lab.fizzbus.infra.exception;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.sxi.e4t.lab.fizzbus.infra.exception.NotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ValidationException;
 import lombok.extern.log4j.Log4j2;

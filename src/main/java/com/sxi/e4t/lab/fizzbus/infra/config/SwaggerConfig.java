@@ -21,7 +21,7 @@ public class SwaggerConfig {
                         .description(""" 
                                 A Spring boot based REST API application to demonstrate,
                                 the correct implementations of handling <italic>(saving, searching, and retrieving)</italic>
-                                <strong>Zoned datetime</strong>.""")
+                                <strong>Zoned datetime</strong> records.""")
                         .version(appVersion)
                         .license(new License()
                                 .name("MIT License")
