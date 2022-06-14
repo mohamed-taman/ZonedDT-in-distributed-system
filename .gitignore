@@ -1,6 +1,6 @@
 HELP.md
 target/
-udb/
+fbdb/
 .jpb
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
