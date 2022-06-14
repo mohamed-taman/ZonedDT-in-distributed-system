@@ -9,7 +9,7 @@ INSERT INTO BRANCH VALUES (3, 'Sales 2', 'America/Los_Angeles', 1);
 INSERT INTO BRANCH VALUES (4, 'Engineering Office', 'Europe/Sofia', 1);
 INSERT INTO BRANCH VALUES (5, 'HQ', 'Europe/Brussels', 1);
 
------- Add a country
+------ Add a Car
 INSERT INTO CAR VALUES (1, 'Toyota', 'C100', 'Green', '131ASDF', 1);
 INSERT INTO CAR VALUES (2, 'Honda', 'C110', 'Yellow', '131QWER', 1);
 

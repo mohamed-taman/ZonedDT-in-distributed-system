@@ -14,7 +14,7 @@ spring:
     name: uber-fleet
   # Database configurations
   datasource:
-    url: jdbc:h2:./udb/uberDB
+    url: jdbc:h2:./fbdb/FizzBusDB
     username: sa
     password: sa
     hikari:
