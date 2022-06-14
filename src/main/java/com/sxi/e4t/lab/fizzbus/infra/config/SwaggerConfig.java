@@ -17,7 +17,7 @@ public class SwaggerConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Uber Service REST API.")
+                        .title("FizzBus Service REST API.")
                         .description(""" 
                                 A Spring boot based REST API application to demonstrate,
                                 the correct implementations of handling <italic>(saving, searching, and retrieving)</italic>
