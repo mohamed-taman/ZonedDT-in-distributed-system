@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.sxi.e4t.lab</groupId>
-    <artifactId>fizz-bus</artifactId>
+    <groupId>com.sxi.lab</groupId>
+    <artifactId>fizzbus</artifactId>
     <version>2.0</version>
-    <name>FizzBus</name>
+    <name>Fizz-Bus</name>
     <description>FizzBus a transportation-like service.</description>
     <packaging>jar</packaging>
 

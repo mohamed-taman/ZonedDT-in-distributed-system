@@ -1,14 +1,14 @@
-package com.sxi.lab.fizzbus.domain.mapper;
+package com.sxi.lab.fizzbus.infra.mapper;
 
-import com.sxi.lab.fizzbus.domain.entity.Car;
-import com.sxi.lab.fizzbus.domain.entity.Customer;
-import com.sxi.lab.fizzbus.domain.entity.Driver;
-import com.sxi.lab.fizzbus.domain.entity.Trip;
-import com.sxi.lab.fizzbus.domain.vo.request.TripRequest;
-import com.sxi.lab.fizzbus.domain.vo.response.CarView;
-import com.sxi.lab.fizzbus.domain.vo.response.CustomerView;
-import com.sxi.lab.fizzbus.domain.vo.response.DriverView;
-import com.sxi.lab.fizzbus.domain.vo.response.TripResponse;
+import com.sxi.lab.fizzbus.domain.Car;
+import com.sxi.lab.fizzbus.domain.Customer;
+import com.sxi.lab.fizzbus.domain.Driver;
+import com.sxi.lab.fizzbus.domain.Trip;
+import com.sxi.lab.fizzbus.api.vo.request.TripRequest;
+import com.sxi.lab.fizzbus.api.vo.response.CarView;
+import com.sxi.lab.fizzbus.api.vo.response.CustomerView;
+import com.sxi.lab.fizzbus.api.vo.response.DriverView;
+import com.sxi.lab.fizzbus.api.vo.response.TripResponse;
 import com.sxi.lab.fizzbus.infra.util.DateTimeParser;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

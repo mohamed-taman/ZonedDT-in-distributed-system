@@ -1,11 +1,14 @@
-package com.sxi.lab.fizzbus.domain.entity;
+package com.sxi.lab.fizzbus.domain;
 
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -21,12 +24,12 @@ import java.util.Objects;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "CUSTOMER")
+@Table(name = "BRANCH")
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
-public class Customer {
+public class Branch {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -37,21 +40,31 @@ public class Customer {
     @Column(name = "NAME")
     private String name;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Basic
+    @Column(name = "TIMEZONE")
+    private String timezone;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "COMPANY_ID")
     @ToString.Exclude
-    private List<Trip> trips = new ArrayList<>();
+    private Company company;
+
+    @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ToString.Exclude
+    private List<Car> cars = new ArrayList<>();
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        var customer = (Customer) o;
+        var branch = (Branch) o;
 
-        return Objects.equals(id, customer.id) || Objects.equals(name, customer.name);
+        return Objects.equals(id, branch.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getTrips());
+        return Objects.hash(getId(), getName(), getTimezone(), getCompany(), getCars());
     }
 }

@@ -1,12 +1,13 @@
 package com.sxi.lab.fizzbus.api;
 
-import com.sxi.lab.fizzbus.domain.vo.request.TripRequest;
-import com.sxi.lab.fizzbus.domain.vo.response.TripResponse;
+import com.sxi.lab.fizzbus.api.vo.request.TripRequest;
+import com.sxi.lab.fizzbus.api.vo.response.TripResponse;
 import com.sxi.lab.fizzbus.service.TripService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,14 +26,11 @@ import java.util.List;
         description = "A set of APIs, for exploring and managing Uber Trips.")
 @RestController
 @RequestMapping("trips")
+@RequiredArgsConstructor
 @Log4j2
 public class TripAPIController {
 
     private final TripService tripService;
-
-    public TripAPIController(TripService tripService) {
-        this.tripService = tripService;
-    }
 
     @Operation(summary = "Get all trips.",
             description = """

@@ -1,6 +1,6 @@
 package com.sxi.lab.fizzbus.repository;
 
-import com.sxi.lab.fizzbus.domain.entity.Trip;
+import com.sxi.lab.fizzbus.domain.Trip;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.ZonedDateTime;

@@ -1,4 +1,4 @@
-package com.sxi.lab.fizzbus.domain.entity;
+package com.sxi.lab.fizzbus.domain;
 
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
@@ -21,12 +21,12 @@ import java.util.Objects;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "DRIVER")
+@Table(name = "COMPANY")
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
-public class Driver {
+public class Company {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -38,24 +38,24 @@ public class Driver {
     private String name;
 
     @Basic
-    @Column(name = "LICENSE_NUMBER")
-    private String licenseNumber;
+    @Column(name = "TIMEZONE")
+    private String timezone;
 
-    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
     @ToString.Exclude
-    private List<Trip> trips = new ArrayList<>();
+    private List<Branch> branches = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        var driver = (Driver) o;
+        var company = (Company) o;
 
-        return Objects.equals(id, driver.id) || Objects.equals(licenseNumber, driver.licenseNumber) ;
+        return Objects.equals(id, company.id) || Objects.equals(name, company.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getLicenseNumber(), getTrips());
+        return Objects.hash(getId(), getName(), getTimezone(), getBranches());
     }
 }

@@ -1,4 +1,4 @@
-package com.sxi.lab.fizzbus.domain.vo.response;
+package com.sxi.lab.fizzbus.api.vo.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

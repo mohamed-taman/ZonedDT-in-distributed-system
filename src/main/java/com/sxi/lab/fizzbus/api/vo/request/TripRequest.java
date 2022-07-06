@@ -1,4 +1,4 @@
-package com.sxi.lab.fizzbus.domain.vo.request;
+package com.sxi.lab.fizzbus.api.vo.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.Future;
