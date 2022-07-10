@@ -14,6 +14,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -37,6 +38,10 @@ public class Customer {
     @Column(name = "NAME")
     private String name;
 
+    @Basic
+    @Column(name = "BIRTHDATE")
+    private LocalDate birthdate;
+
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     @ToString.Exclude
     private List<Trip> trips = new ArrayList<>();
@@ -52,6 +57,6 @@ public class Customer {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getTrips());
+        return Objects.hash(getId(), getName(),getBirthdate(), getTrips());
     }
 }
