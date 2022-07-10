@@ -11,7 +11,7 @@ app:
 # Spring properties
 spring:
   application:
-    name: uber-fleet
+    name: @project.name@
   # Database configurations
   datasource:
     url: jdbc:h2:./fbdb/FizzBusDB
@@ -60,7 +60,7 @@ server:
     include-message: always
     include-binding-errors: always
   servlet:
-    context-path: /api/${app.api.version}/fizz-bus
+    context-path: /api/${app.api.version}/${spring.application.name}
 
 # Application health and information management
 management:
