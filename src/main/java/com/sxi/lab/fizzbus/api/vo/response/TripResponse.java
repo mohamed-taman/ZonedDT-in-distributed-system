@@ -8,9 +8,9 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 @JsonInclude(NON_NULL)
 public record TripResponse(long id,
                            @JsonProperty("record_timezone") String timezone,
-                           String startOn,
-                           String endAt,
-                           String recordAge,
+                           @JsonProperty("start_on") String startOn,
+                           @JsonProperty("end_at") String endAt,
+                           @JsonProperty("record_age") String recordAge,
                            double distance,
                            String status,
                            CarView car,

@@ -5,10 +5,6 @@ import static java.lang.String.valueOf;
 
 public class NotFoundException extends RuntimeException {
 
-    public NotFoundException(String message) {
-        super(message);
-    }
-
     public NotFoundException(Class<?> clazz, long id) {
         this(clazz, valueOf(id));
     }

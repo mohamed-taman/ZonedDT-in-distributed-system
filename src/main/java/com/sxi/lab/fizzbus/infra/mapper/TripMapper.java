@@ -31,9 +31,9 @@ public interface TripMapper {
     List<Trip> toModels(List<TripRequest> request);
 
     @Mapping(target = "startOn",
-            expression = "java( DateTimeParser.toDateTimeString(trip.getStartOn(), timezone) )")
+            expression = "java( DateTimeParser.toString(trip.getStartOn(), timezone) )")
     @Mapping(target = "endAt",
-            expression = "java( DateTimeParser.toDateTimeString(trip.getEndAt(), timezone) )")
+            expression = "java( DateTimeParser.toString(trip.getEndAt(), timezone) )")
     @Mapping(target = "recordAge",
             expression = "java( DateTimeParser.calculateRecordAge(trip.getStartOn(), timezone) )")
     TripResponse toView(Trip trip, String timezone);

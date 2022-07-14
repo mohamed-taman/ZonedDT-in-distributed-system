@@ -33,7 +33,7 @@ public final class DateTimeParser {
         return ZonedDateTime.of(timestamp, ZoneId.of(timezone));
     }
 
-    public static String toDateTimeString(ZonedDateTime zonedDateTime, String timezone) {
+    public static String toString(ZonedDateTime zonedDateTime, String timezone) {
 
         return zonedDateTime.toInstant()
                 .atZone(ZoneId.of(timezone))

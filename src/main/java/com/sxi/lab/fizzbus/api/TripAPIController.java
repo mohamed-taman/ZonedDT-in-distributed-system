@@ -57,7 +57,7 @@ public class TripAPIController {
     @Operation(summary = "Get a specific trip.",
             description = "An API call to get trip by id, for a specific timezone.")
     @GetMapping("/{id}")
-    public TripResponse getTrip(@Parameter(example = "1") @PathVariable String id,
+    public TripResponse oneTrip(@Parameter(example = "1") @PathVariable String id,
                                 @Parameter(example = "Europe/Sofia") @RequestParam("tz") String timezone) {
         return tripService.findById(Long.valueOf(id), timezone);
     }
