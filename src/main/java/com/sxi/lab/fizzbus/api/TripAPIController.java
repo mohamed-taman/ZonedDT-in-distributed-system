@@ -5,10 +5,14 @@ import com.sxi.lab.fizzbus.api.vo.response.TripResponse;
 import com.sxi.lab.fizzbus.service.TripService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -19,7 +23,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @Tag(name = "Trip Manager",
@@ -63,10 +69,21 @@ public class TripAPIController {
     }
 
     @Operation(summary = "Create a trip.",
-            description = "An API call to create a trip, with user timezone.")
+            description = "An API call to create a trip, with user timezone.",
+            responses = @ApiResponse(responseCode = "201",
+                    description = "Trip created.",
+                    content = @Content(schema = @Schema(hidden = true))))
     @PostMapping
-    public void addTrip(@RequestBody @Valid TripRequest trip) {
-        tripService.add(trip);
+    public ResponseEntity<Void> addTrip(@RequestBody @Valid TripRequest trip) {
+        var tripId = tripService.add(trip);
+
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(tripId)
+                .toUri();
+
+        return ResponseEntity.created(location).build();
     }
 
     @Operation(summary = "Create a multiple trips.",
@@ -85,10 +102,14 @@ public class TripAPIController {
     }
 
     @Operation(summary = "Delete a trip.",
-            description = "An API call to delete a trip by id.")
+            description = "An API call to delete a trip by id.",
+            responses = @ApiResponse(responseCode = "204",
+                    description = "Trip deleted.",
+                    content = @Content(schema = @Schema(hidden = true))))
     @DeleteMapping("/{id}")
-    public void deleteTrip(@PathVariable String id) {
+    public ResponseEntity<Void> deleteTrip(@PathVariable String id) {
         tripService.delete(Long.valueOf(id));
+        return ResponseEntity.noContent().build();
     }
 
 }

@@ -29,9 +29,8 @@ public class TripService {
                 .findAll(), timezone);
     }
 
-    public void add(TripRequest tripRequest) {
-
-        tripRepository.save(tripMapper.toModel(tripRequest));
+    public long add(TripRequest tripRequest) {
+        return tripRepository.save(tripMapper.toModel(tripRequest)).getId();
     }
 
     public void addAll(List<TripRequest> tripRequests) {
