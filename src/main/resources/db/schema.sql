@@ -68,8 +68,8 @@ CREATE TABLE IF NOT EXISTS trip
 (
     id          INT AUTO_INCREMENT PRIMARY KEY,
     timezone    VARCHAR(255),
-    start_on    TIMESTAMP WITH TIME ZONE,
-    end_at      TIMESTAMP WITH TIME ZONE,
+    start_on    TIMESTAMP,
+    end_at      TIMESTAMP,
     distance    DOUBLE,
     status      ENUM ('Started','In_Progress','Ended','Canceled') NOT NULL,
     car_id      INT,
