@@ -43,7 +43,7 @@ public class TripAPIController {
                     An API call to get all the trips, and the
                     result is formatted according to a specific timezone.""")
     @GetMapping
-    public List<TripResponse> allTrips(@Parameter(example = "Europe/Sofia") @RequestParam("tz") String timezone) {
+    public List<TripResponse> allTrips(@Parameter(example = "Europe/Belgrade") @RequestParam("tz") String timezone) {
         return tripService.getAll(timezone);
     }
 
@@ -52,7 +52,7 @@ public class TripAPIController {
     @GetMapping("search")
     public List<TripResponse> search(@Parameter(example = "2022-07-15 01:01:01") @RequestParam("fromDate") String fromDate,
                                      @Parameter(example = "2022-07-20 01:01:01") @RequestParam("toDate") String toDate,
-                                     @Parameter(example = "Europe/Sofia") @RequestParam("tz") String timezone) {
+                                     @Parameter(example = "Europe/Belgrade") @RequestParam("tz") String timezone) {
 
         log.info("Searching for trips in date range between [{}] and [{}] and timezone of [{}]",
                 fromDate, toDate, timezone);
@@ -64,7 +64,7 @@ public class TripAPIController {
             description = "An API call to get trip by id, for a specific timezone.")
     @GetMapping("/{id}")
     public TripResponse oneTrip(@Parameter(example = "1") @PathVariable String id,
-                                @Parameter(example = "Europe/Sofia") @RequestParam("tz") String timezone) {
+                                @Parameter(example = "Europe/Belgrade") @RequestParam("tz") String timezone) {
         return tripService.findById(Long.valueOf(id), timezone);
     }
 
