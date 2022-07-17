@@ -11,9 +11,9 @@ Simple Application showing zoned date-time based conversion concept, could be lo
 - Check java version:
     ```bash
     [mtaman]:~ java -version
-    java version "18" 2022-03-22
-    Java(TM) SE Runtime Environment (build 18+36-2087)
-    Java HotSpot(TM) 64-Bit Server VM (build 18+36-2087, mixed mode, sharing)
+    java version "18.0.1.1" 2022-04-22
+    Java(TM) SE Runtime Environment (build 18.0.1.1+2-6)
+    Java HotSpot(TM) 64-Bit Server VM (build 18.0.1.1+2-6, mixed mode, sharing)
     ```
 Now you are ready to clone the project a run it locally either within your favorite IDE (I am using an IntelliJ IDEA) or from the command line as the following:
 
@@ -22,7 +22,7 @@ Now you are ready to clone the project a run it locally either within your favor
     ```bash
     [mtaman]:~ mvn spring-boot:run
     ```
-3. Or open it in your IDE and make sure you set project Java language to 18, and run the app main class `com.sxi.e4t.lab.fizzbus.FizzBusApplication`.
+3. Or open it in your IDE and make sure you set project Java language to 18, and run the app main class `com.sxi.lab.fizzbus.FizzBusApplication`.
 4. Finally, you can access its swagger documentation from this URL [http://localhost:8090/api/v1/fizz-bus/doc/index.html](http://localhost:8090/api/v1/fizz-bus/doc/index.html). Which will be used for testing the application.
 
 ### Related Articles
