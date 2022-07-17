@@ -39,7 +39,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity
                 .status(NOT_FOUND)
                 .body(new ApiCallError<>("Not found",
-                List.of(ex.getMessage())));
+                        List.of(ex.getMessage())));
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
@@ -52,7 +52,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity
                 .badRequest()
                 .body(new ApiCallError<>("Illegal Arguments",
-                List.of(ex.getMessage())));
+                        List.of(ex.getMessage())));
     }
 
 
@@ -144,7 +144,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity
                 .status(INTERNAL_SERVER_ERROR)
                 .body(new ApiCallError<>("Internal server error",
-                List.of(ex.getMessage())));
+                        List.of(ex.getMessage())));
     }
 }
 

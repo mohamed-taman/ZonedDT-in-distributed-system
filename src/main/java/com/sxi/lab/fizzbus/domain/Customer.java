@@ -57,6 +57,6 @@ public class Customer {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(),getBirthdate(), getTrips());
+        return Objects.hash(getId(), getName(), getBirthdate(), getTrips());
     }
 }

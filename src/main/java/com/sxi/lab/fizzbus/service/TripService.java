@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static com.sxi.lab.fizzbus.infra.util.DateTimeParser.parseDateTime;
+import static com.sxi.lab.fizzbus.infra.util.DateTimeUtil.parseDateTime;
 
 @Service
 @RequiredArgsConstructor

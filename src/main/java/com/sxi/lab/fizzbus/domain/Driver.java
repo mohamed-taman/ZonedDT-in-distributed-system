@@ -51,7 +51,7 @@ public class Driver {
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         var driver = (Driver) o;
 
-        return Objects.equals(id, driver.id) || Objects.equals(licenseNumber, driver.licenseNumber) ;
+        return Objects.equals(id, driver.id) || Objects.equals(licenseNumber, driver.licenseNumber);
     }
 
     @Override

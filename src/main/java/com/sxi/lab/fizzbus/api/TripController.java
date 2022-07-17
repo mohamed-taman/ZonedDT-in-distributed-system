@@ -34,7 +34,7 @@ import java.util.List;
 @RequestMapping("trips")
 @RequiredArgsConstructor
 @Log4j2
-public class TripAPIController {
+public class TripController {
 
     private final TripService tripService;
 

@@ -26,7 +26,7 @@
         <!--  Dependencies versions properties  -->
         <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
         <maven.failsafe.plugin.version>3.0.0-M5</maven.failsafe.plugin.version>
-        <org.mapstruct.version>1.5.1.Final</org.mapstruct.version>
+        <org.mapstruct.version>1.5.2.Final</org.mapstruct.version>
         <org.springdoc.version>2.0.0-M3</org.springdoc.version>
         <org.lombok.version>1.18.24</org.lombok.version>
     </properties>

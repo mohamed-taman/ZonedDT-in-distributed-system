@@ -7,12 +7,12 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
-public final class DateTimeParser {
+public final class DateTimeUtil {
 
     private static final String DATE_PATTERN = "yyyy-MM-dd";
     private static final String DATE_TIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
 
-    private DateTimeParser() {
+    private DateTimeUtil() {
     }
 
     public static LocalDate parseDate(String date) {
