@@ -1,108 +1,108 @@
 ## Custom application properties
 app:
-  version: @project.version@
-  api:
-    version: "v1"
-  trip:
-    pattern:
-      datetime: 'yyyy-MM-dd HH:mm:ss'
-      date: 'yyyy-MM-dd'
+    version: @project.version@
+    api:
+        version: "v1"
+    trip:
+        pattern:
+            datetime: 'yyyy-MM-dd HH:mm:ss'
+            date: 'yyyy-MM-dd'
 
 # Spring properties
 spring:
-  application:
-    name: uber-fleet
-  # Database configurations
-  datasource:
-    url: jdbc:h2:./udb/uberDB
-    username: sa
-    password: sa
-    hikari:
-      initialization-fail-timeout: 60000
-      connection-test-query: SELECT 1
-      maximum-pool-size: 10
+    application:
+        name: @project.name@
+    # Database configurations
+    datasource:
+        url: jdbc:h2:./fbdb/FizzBusDB
+        username: sa
+        password: sa
+        hikari:
+            initialization-fail-timeout: 60000
+            connection-test-query: SELECT 1
+            maximum-pool-size: 10
 
-  h2:
-    console:
-      enabled: true
-      path: /db-console
-  jpa:
-    show-sql: true
-    open-in-view: false
-    hibernate:
-      ddl-auto: none
-    # The SQL dialect makes Hibernate generate better SQL for the chosen database
-    properties:
-      hibernate:
-        format_sql: true
-        dialect: org.hibernate.dialect.H2Dialect
-        generate_statistics: false
-        # Switching on batch insert
-        # Take the time to group inserts by entity, creating larger batches.
-        order_inserts: true
-        order_updates: true
-        # collect inserts in batches of 100
-        jdbc:
-          size: 100
-          time_zone: UTC
-  sql:
-    init:
-      data-locations: classpath*:db/data.sql
-      schema-locations: classpath*:db/schema.sql
-      platform: h2
-      mode: always
+    h2:
+        console:
+            enabled: true
+            path: /db-console
+    jpa:
+        show-sql: true
+        open-in-view: false
+        hibernate:
+            ddl-auto: none
+        # The SQL dialect makes Hibernate generate better SQL for the chosen database
+        properties:
+            hibernate:
+                format_sql: true
+                dialect: org.hibernate.dialect.H2Dialect
+                generate_statistics: false
+                # Switching on batch insert
+                # Take the time to group inserts by entity, creating larger batches.
+                order_inserts: true
+                order_updates: true
+                # collect inserts in batches of 100
+                jdbc:
+                    size: 100
+                    time_zone: UTC
+    sql:
+        init:
+            data-locations: classpath*:db/data.sql
+            schema-locations: classpath*:db/schema.sql
+            platform: h2
+            mode: always
 
 # Server configs
 server:
-  port: 8090
-  ## Should be included to show message, if not error message will be empty
-  error:
-    include-message: always
-    include-binding-errors: always
-  servlet:
-    context-path: /api/${app.api.version}/fizz-bus/service
+    port: 8090
+    ## Should be included to show message, if not error message will be empty
+    error:
+        include-message: always
+        include-binding-errors: always
+    servlet:
+        context-path: /api/${app.api.version}/${spring.application.name}
 
 # Application health and information management
 management:
-  info.git:
-    mode: full
-    enabled: true
-  endpoints.web.exposure.include: "*"
-  endpoint:
-    shutdown.enabled: false
-    health.show-details: always
+    info.git:
+        mode: full
+        enabled: true
+    endpoints.web.exposure.include: "*"
+    endpoint:
+        shutdown.enabled: false
+        health.show-details: always
 
 # Logging settings
 logging.level:
-  org:
-    hibernate:
-      SQL: debug
-      type.descriptor.sql.BasicBinder: trace
-    springframework:
-      cache: trace
-      web: debug
-  web: debug
-  root: info
-  com:
-    sxi:
-      e4t:
-        lab:
-          uber: debug
+    org:
+        hibernate:
+            SQL: debug
+            type.descriptor.sql.BasicBinder: trace
+        springframework:
+            cache: trace
+            web: debug
+    web: debug
+    root: info
+    com:
+        sxi:
+            e4t:
+                lab:
+                    uber: debug
 
 
 # OpenAPI (Swagger) settings
 springdoc:
-  # swagger-ui custom path
-  swagger-ui:
-    path: /doc/index.html
-    operationsSorter: alpha
-    tagsSorter: alpha
-    displayRequestDuration: true
-    syntaxHighlight:
-      theme: arta
-  # /api-docs endpoint custom path
-  api-docs:
-    path: /api-docs
-  # to display the actuator endpoints.
-  show-actuator: false
+    # swagger-ui custom path
+    swagger-ui:
+        path: /doc/index.html
+        operationsSorter: alpha
+        tagsSorter: alpha
+        displayRequestDuration: true
+        syntaxHighlight:
+            theme: arta
+    # /api-docs endpoint custom path
+    api-docs:
+        path: /api-docs
+    # to display the actuator endpoints.
+    show-actuator: false
 

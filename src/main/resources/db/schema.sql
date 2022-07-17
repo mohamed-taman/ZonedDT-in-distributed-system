@@ -57,8 +57,9 @@ CREATE TABLE IF NOT EXISTS driver
 -- Start -  Customer table definition
 CREATE TABLE IF NOT EXISTS customer
 (
-    id       INT AUTO_INCREMENT PRIMARY KEY,
-    name     VARCHAR(100) NOT NULL
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    name        VARCHAR(100) NOT NULL,
+    birthdate  DATE NOT NULL
 );
 -- End -  Customer table definition
 
