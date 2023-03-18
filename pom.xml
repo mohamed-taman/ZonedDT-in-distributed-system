@@ -5,30 +5,30 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.0-M4</version>
+        <version>3.0.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>com.sxi.lab</groupId>
     <artifactId>fizzbus</artifactId>
-    <version>2.5</version>
+    <version>2.6</version>
     <name>fizz-bus</name>
     <description>FizzBus a simple fleet management like service.</description>
     <packaging>jar</packaging>
 
     <properties>
-        <maven.compiler.release>18</maven.compiler.release>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
+        <maven.compiler.release>20</maven.compiler.release>
+        <maven.compiler.source>20</maven.compiler.source>
+        <maven.compiler.target>20</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!--  Dependencies versions properties  -->
         <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
         <maven.failsafe.plugin.version>3.0.0-M5</maven.failsafe.plugin.version>
-        <org.mapstruct.version>1.5.2.Final</org.mapstruct.version>
-        <org.springdoc.version>2.0.0-M3</org.springdoc.version>
-        <org.lombok.version>1.18.24</org.lombok.version>
+        <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
+        <org.springdoc.version>2.0.4</org.springdoc.version>
+
     </properties>
 
     <dependencies>
@@ -80,7 +80,6 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${org.lombok.version}</version>
             <optional>true</optional>
         </dependency>
 
@@ -120,7 +119,7 @@
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-                            <version>${org.lombok.version}</version>
+                            <version>${lombok.version}</version>
                         </path>
                         <path>
                             <groupId>org.mapstruct</groupId>
@@ -150,25 +149,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <repositories>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
 </project>

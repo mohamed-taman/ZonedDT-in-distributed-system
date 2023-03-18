@@ -50,8 +50,8 @@ public class TripController {
     @Operation(summary = "Search all trips.",
             description = "An API call to search all the trips, between two dates, for a specific timezone.")
     @GetMapping("search")
-    public List<TripResponse> search(@Parameter(example = "2022-07-15 01:01:01") @RequestParam("fromDate") String fromDate,
-                                     @Parameter(example = "2022-07-20 01:01:01") @RequestParam("toDate") String toDate,
+    public List<TripResponse> search(@Parameter(example = "2023-07-15 01:01:01") @RequestParam("fromDate") String fromDate,
+                                     @Parameter(example = "2023-07-20 01:01:01") @RequestParam("toDate") String toDate,
                                      @Parameter(example = "Europe/Belgrade") @RequestParam("tz") String timezone) {
 
         log.info("Searching for trips in date range between [{}] and [{}] and timezone of [{}]",

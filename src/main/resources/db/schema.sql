@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS trip
     start_on    TIMESTAMP,
     end_at      TIMESTAMP,
     distance    DOUBLE,
-    status      ENUM ('Started','In_Progress','Ended','Canceled') NOT NULL,
+    status      ENUM ('Started','In_Progress','Finished','Canceled') NOT NULL,
     car_id      INT,
     driver_id   INT,
     customer_id INT,
