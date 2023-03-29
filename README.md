@@ -29,9 +29,11 @@ Now you are ready to clone the project a run it locally either within your favor
 3. Open it in your IDE, set project Java language to 20, and run the main app class `com.sxi.lab.fizzbus.FizzBusApplication`.
 4. Finally, you can access its swagger documentation from this URL [http://localhost:8090/api/v1/fizz-bus/doc/index.html](http://localhost:8090/api/v1/fizz-bus/doc/index.html). Which will be used for testing the application.
 
+<!--
 ### Related Articles
 
 I have written 2 Java Magazine articles explaining this project and the general problems considering zoned Date-Time implementations.
 
 1. **Part 1** - Handling Timezone with Java in Distributed Systems. _Correctly implementing Zoned Date/Time in distributed System with Java_.
 2. **Part 2** - Handling Timezone with Java in Distributed Systems. _Implementing Zoned Date/Time in distributed FizzBus Service_.
+-->
