@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.5</version>
+        <version>3.1.0-M2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -17,17 +17,18 @@
     <packaging>jar</packaging>
 
     <properties>
-        <maven.compiler.release>20</maven.compiler.release>
-        <maven.compiler.source>20</maven.compiler.source>
-        <maven.compiler.target>20</maven.compiler.target>
+        <java.version>20</java.version>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!--  Dependencies versions properties  -->
-        <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
-        <maven.failsafe.plugin.version>3.0.0-M5</maven.failsafe.plugin.version>
-        <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
-        <org.springdoc.version>2.0.4</org.springdoc.version>
+        <maven.surefire.plugin.version>3.0.0</maven.surefire.plugin.version>
+        <maven.failsafe.plugin.version>3.0.0</maven.failsafe.plugin.version>
+        <org.mapstruct.version>1.5.4.Final</org.mapstruct.version>
+        <org.springdoc.version>2.1.0</org.springdoc.version>
 
     </properties>
 
@@ -149,4 +150,24 @@
             </plugin>
         </plugins>
     </build>
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
