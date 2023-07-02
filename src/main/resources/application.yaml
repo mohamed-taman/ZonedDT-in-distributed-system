@@ -26,6 +26,11 @@ spring:
         console:
             enabled: true
             path: /db-console
+            
+    jackson:
+        mapper:
+            accept-case-insensitive-enums: true
+    
     jpa:
         show-sql: true
         open-in-view: false
