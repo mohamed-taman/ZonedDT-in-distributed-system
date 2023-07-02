@@ -1,5 +1,8 @@
 package com.sxi.lab.fizzbus.infra.util;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -7,10 +10,11 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
+@Component
 public final class DateTimeUtil {
 
-    private static final String DATE_PATTERN = "yyyy-MM-dd";
-    private static final String DATE_TIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
+    private static String DATE_PATTERN;
+    private static String DATE_TIME_PATTERN;
 
     private DateTimeUtil() {
     }
@@ -79,5 +83,15 @@ public final class DateTimeUtil {
 
         return recordAge;
 
+    }
+
+    @Value("${app.trip.pattern.date}")
+    public void setDatePattern(String datePattern) {
+        DateTimeUtil.DATE_PATTERN = datePattern;
+    }
+
+    @Value("${app.trip.pattern.datetime}")
+    public void setDateTimePattern(String dateTimePattern) {
+        DateTimeUtil.DATE_TIME_PATTERN = dateTimePattern;
     }
 }
